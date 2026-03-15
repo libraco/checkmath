@@ -111,7 +111,7 @@ const i18n = {
 };
 
 // ── STATE ──
-let currentLang = 'en';
+let currentLang = 'vi';
 
 // ── BLOCKCHAIN DETECT ──
 function detectBlockchain(address) {
@@ -229,6 +229,7 @@ function copyDonationAddr() {
   } else { fallbackCopy(addr, success); }
 }
 
+// ── fallbackCopy ──
 function fallbackCopy(text, onSuccess) {
   const ta = document.createElement('textarea');
   ta.value = text; ta.style.cssText = 'position:fixed;opacity:0;top:-9999px';
@@ -252,6 +253,7 @@ function clearAll() {
 let _toastTimer;
 function showToast(msg) {
   const el = document.getElementById('toast');
+  if (!el) return;
   el.textContent = msg; el.classList.add('show');
   clearTimeout(_toastTimer);
   _toastTimer = setTimeout(() => el.classList.remove('show'), 2800);
@@ -276,13 +278,9 @@ function applyTranslations() {
     el.textContent = t[key];
   });
 
-  // Explicit HTML keys
+  // Explicit HTML keys for fallback or specific IDs
   const footerMainEl = document.getElementById('footer-main-text');
   if (footerMainEl) footerMainEl.innerHTML = t.footerMain;
-
-  // Explicit innerHTML for footer (parent might contain sub-elements like <a>)
-  const footerMainEl2 = document.querySelector('[data-i18n="footerMain"]');
-  if (footerMainEl2) footerMainEl2.innerHTML = t.footerMain;
 
   // Placeholders
   document.getElementById('addr-original').placeholder = t.placeholderOriginal;
@@ -314,7 +312,7 @@ function applyTranslations() {
 document.addEventListener('DOMContentLoaded', () => {
   applyTranslations();
 
-  // ── Button wiring (replaces inline onclick, CSP-safe) ──
+  // ── Button wiring ──
   document.getElementById('btn-lang-en').addEventListener('click', () => setLang('en'));
   document.getElementById('btn-lang-vi').addEventListener('click', () => setLang('vi'));
   document.getElementById('btn-check').addEventListener('click', checkAddresses);
@@ -328,7 +326,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Ctrl+Enter shortcut
   ['addr-original','addr-pasted'].forEach(id => {
-    document.getElementById(id).addEventListener('keydown', e => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.addEventListener('keydown', e => {
       if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') checkAddresses();
     });
   });
