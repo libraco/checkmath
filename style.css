@@ -1,0 +1,234 @@
+/* CheckMatch - Classic Forum Theme */
+body {
+    background-color: #E5E5E8;
+    color: #000000;
+    font-family: verdana, sans-serif;
+    font-size: 13px;
+    margin: 0;
+    padding: 0;
+}
+
+.wrapper {
+    width: 90%;
+    max-width: 1000px;
+    margin: 0 auto;
+    background-color: #FFFFFF;
+    border: 1px solid #636363;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.header {
+    background-color: #F8F8F8;
+    padding: 20px;
+    border-bottom: 1px solid #636363;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #476C8E;
+}
+
+.subtitle {
+    font-size: 12px;
+    color: #666666;
+}
+
+.top-menu {
+    background-color: #476C8E;
+    color: #FFFFFF;
+    padding: 5px 10px;
+    font-size: 12px;
+}
+
+.top-menu a {
+    color: #FFFFFF;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.top-menu a:hover {
+    text-decoration: underline;
+}
+
+.main-content {
+    padding: 15px;
+}
+
+.section-container {
+    margin-bottom: 20px;
+}
+
+.titlebg {
+    background-color: #476C8E;
+    color: #FFFFFF;
+    padding: 6px 10px;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+.windowbg {
+    background-color: #EAEAEA;
+    padding: 15px;
+    border: 1px solid #AAAAAA;
+    border-top: none;
+}
+
+.windowbg2 {
+    background-color: #F8F8F8;
+    padding: 15px;
+    border: 1px solid #AAAAAA;
+    border-top: none;
+}
+
+textarea {
+    width: 100%;
+    box-sizing: border-box;
+    font-family: monospace;
+    font-size: 13px;
+    border: 1px solid #808080;
+    padding: 8px;
+    background-color: #FFFFFF;
+    margin-top: 5px;
+}
+
+button {
+    background-color: #EFEFEF;
+    border: 1px solid #808080;
+    padding: 5px 15px;
+    font-family: verdana, sans-serif;
+    font-size: 12px;
+    cursor: pointer;
+    color: #000000;
+}
+
+button:hover {
+    background-color: #DFDFDF;
+}
+
+.hint {
+    font-size: 11px;
+    color: #666666;
+    margin-left: 10px;
+}
+
+.chain-badge {
+    font-size: 11px;
+    color: #476C8E;
+    font-weight: bold;
+    margin-top: 3px;
+    min-height: 14px;
+}
+
+.stats-row {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.stat-box {
+    border: 1px solid #AAAAAA;
+    padding: 10px;
+    background-color: #FFFFFF;
+    flex: 1;
+    font-size: 12px;
+}
+
+.diff-box {
+    font-family: monospace;
+    font-size: 14px;
+    background-color: #FFFFFF;
+    border: 1px solid #AAAAAA;
+    padding: 10px;
+    word-break: break-all;
+    margin-top: 5px;
+}
+
+.ch { padding: 0 1px; }
+.match { color: green; font-weight: bold; }
+.mismatch { color: red; background-color: #FFCCCC; font-weight: bold; text-decoration: underline; }
+.missing { color: #cc7000; background-color: #FFFFCC; font-weight: bold; border-bottom: 1px dashed #cc7000; }
+
+#result-section {
+    display: none;
+}
+#result-section.visible {
+    display: block;
+}
+
+.risk-banner {
+    padding: 15px;
+    border: 1px solid;
+    margin-bottom: 15px;
+    background-color: #FFFFFF;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.risk-banner.safe { border-color: green; background-color: #E8F5E9; }
+.risk-banner.warn { border-color: orange; background-color: #FFF3E0; }
+.risk-banner.danger { border-color: red; background-color: #FFEBEE; }
+
+.risk-head {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.risk-banner.safe .risk-head { color: green; }
+.risk-banner.warn .risk-head { color: #d87b00; }
+.risk-banner.danger .risk-head { color: red; }
+
+.risk-sub {
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.risk-pct {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 11px;
+    color: #666666;
+    border-top: 1px solid #AAAAAA;
+    background-color: #F8F8F8;
+}
+
+.footer button {
+    padding: 2px 8px;
+    font-size: 11px;
+}
+
+/* Toast */
+.toast {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #476C8E;
+    color: #FFFFFF;
+    padding: 10px 20px;
+    border: 1px solid #000000;
+    font-size: 12px;
+    font-weight: bold;
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+.toast.show {
+    opacity: 1;
+}
+
+a {
+    color: #0000ff;
+}
+a:hover {
+    text-decoration: underline;
+}

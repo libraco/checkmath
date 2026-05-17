@@ -1,0 +1,10 @@
+# Agent skills & config (internal use only)
+.agent/
+docs/
+
+# OS
+.DS_Store
+
+# Node
+node_modules/
+package-lock.json

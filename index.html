@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CheckMatch - Secure Crypto Wallet Address Verification</title>
+  <meta name="description" content="Verify crypto wallet address when copy-pasting to prevent clipboard hijacking and address poisoning. Supports ETH, BTC, SOL, TRON, BNB." />
+  <link rel="canonical" href="https://libraco.github.io/checkmatch/" />
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="apple-touch-icon" href="favicon.png" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://libraco.github.io/checkmatch/" />
+  <meta property="og:title" content="CheckMatch - Secure Crypto Wallet Address Verification" />
+  <meta property="og:description" content="Verify crypto wallet address when copy-pasting to prevent clipboard hijacking and address poisoning. Supports ETH, BTC, SOL, TRON, BNB." />
+  <meta property="og:image" content="https://libraco.github.io/checkmatch/favicon.png" />
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content="https://libraco.github.io/checkmatch/" />
+  <meta property="twitter:title" content="CheckMatch - Secure Crypto Wallet Address Verification" />
+  <meta property="twitter:description" content="Verify crypto wallet address when copy-pasting to prevent clipboard hijacking and address poisoning. Supports ETH, BTC, SOL, TRON, BNB." />
+  <meta property="twitter:image" content="https://libraco.github.io/checkmatch/favicon.png" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div class="wrapper">
+  
+  <div class="header">
+    <div class="logo">CheckMatch</div>
+    <div class="subtitle">Crypto Wallet Address Verification</div>
+  </div>
+
+  <div class="main-content">
+    
+    <div class="section-container">
+      <div class="titlebg">Introduction &amp; How it works</div>
+      <div class="windowbg">
+        <p>Address-poisoning scams and clipboard hijackers are rising. Compare every character to make sure you're sending to the right place.</p>
+        <ol>
+            <li><strong>Paste original address:</strong> Copy the address from the official source (website, confirmation email, QR code...).</li>
+            <li><strong>Paste clipboard address:</strong> Paste the address you copied from your clipboard - the one you will use to send funds.</li>
+            <li><strong>Read the result:</strong> The tool compares every character and warns you instantly if a scam is detected.</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="section-container">
+      <div class="titlebg">Address Comparison</div>
+      <div class="windowbg2">
+        <div class="input-form">
+          <div class="form-group">
+            <label for="addr-original"><strong>Original address (official source):</strong></label>
+            <textarea id="addr-original" rows="3" placeholder="Paste the address from the official source..." spellcheck="false" autocomplete="off" autocorrect="off"></textarea>
+            <div id="chain-original" class="chain-badge"></div>
+          </div>
+
+          <div class="form-group" style="margin-top: 15px;">
+            <label for="addr-pasted"><strong>Pasted address (from clipboard):</strong></label>
+            <textarea id="addr-pasted" rows="3" placeholder="Paste the address from your clipboard / wallet..." spellcheck="false" autocomplete="off" autocorrect="off"></textarea>
+            <div id="chain-pasted" class="chain-badge"></div>
+          </div>
+
+          <div class="actions" style="margin-top: 15px;">
+            <button id="btn-check">Check Addresses</button>
+            <button id="btn-paste">Paste from Clipboard</button>
+            <button id="btn-clear">Clear</button>
+            <span class="hint">Hint: Press Ctrl+Enter to check quickly</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="result-section" class="section-container">
+      <div class="titlebg">Analysis Result</div>
+      <div class="windowbg">
+        <div id="risk-banner" class="risk-banner">
+          <div class="risk-copy">
+            <div id="risk-label" class="risk-head"></div>
+            <div id="risk-desc" class="risk-sub"></div>
+          </div>
+          <div id="risk-score" class="risk-pct"></div>
+        </div>
+
+        <div class="stats-row">
+          <div class="stat-box"><strong>Matching:</strong> <span id="stat-match" style="color:green;">0</span></div>
+          <div class="stat-box"><strong>Different:</strong> <span id="stat-mismatch" style="color:red;">0</span></div>
+          <div class="stat-box"><strong>Total Chars:</strong> <span id="stat-total">0</span></div>
+          <div class="stat-box"><strong>Similarity:</strong> <span id="stat-similarity">0%</span></div>
+        </div>
+
+        <div class="diff-section" style="margin-top: 15px;">
+            <div><strong>Original address - character by character:</strong></div>
+            <div id="diff-original" class="diff-box"></div>
+            
+            <div style="margin-top: 10px;"><strong>Pasted address - character by character:</strong></div>
+            <div id="diff-pasted" class="diff-box"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-container">
+      <div class="titlebg">Security Commitment &amp; Tips</div>
+      <div class="windowbg2">
+        <ul style="margin: 0; padding-left: 20px; line-height: 1.6;">
+            <li><strong>100% Browser-Side:</strong> All computation runs in your browser. No data ever leaves your device.</li>
+            <li><strong>No Data Storage:</strong> No database, no server. Your wallet addresses are never saved or logged.</li>
+            <li><strong>Always verify manually:</strong> Never skip checking the full address, especially the middle characters.</li>
+            <li><strong>Limit clipboard access:</strong> Use hardware wallets or clipboard-protection browser extensions.</li>
+            <li><strong>Send a test transaction:</strong> Always send a tiny amount first to confirm the address before the full amount.</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    Made with for Bitcoin enthusiasts | &copy; 2025 <a href="https://libraco.github.io/bitcoinchecker/">Bitcoin Checker</a> | <a href="https://github.com/libraco/checkmatch">Powered by Github</a>
+  </div>
+
+</div>
+
+<div id="toast" class="toast"></div>
+
+<script src="app.js"></script>
+</body>
+</html>
